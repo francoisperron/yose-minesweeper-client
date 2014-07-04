@@ -1,0 +1,38 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Sans Mono", Helvetica, Arial, sans-serif !important;
+}
+
+a, a:hover {
+    color: #B00040;
+}
+
+.green {
+    color: #81BA72;
+}
+
+.kind-of-center {
+    margin-top: 10%;
+}
+
+.some-space-on-top {
+    margin-top: 20px;
+}
+
+.squared-board {
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr {
+    height: 50px;
+}
+
+td {
+    width: 50px;
+}
+
+td:hover {
+    background-color: #ace2a0;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "yose-minesweeper-client",
+  "version": "0.0.1",
+  "description": "Minesweeper challenge solution of YoseTheGame",
+  "engines": {
+    "node": "0.10.29",
+    "npm": "1.*"
+  },
+  "dependencies": {
+    "http-server": "^0.6.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.3",
+    "jquery": "1.8.3",
+    "zombie": "^2.0.0-alpha31"
+  },
+  "scripts": {
+    "start": "node_modules/http-server/bin/http-server -p 5002",
+    "test": "node_modules/jasmine-node/bin/jasmine-node --captureExceptions features",
+    "livereload": "livereload . -i 200"
+  },
+  "main": "node_modules/http-server/bin/http-server"
+}
