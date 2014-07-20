@@ -36,3 +36,8 @@ td {
 td:hover {
     background-color: #ace2a0;
 }
+
+.lost {
+    background: url('/img/bomb.png') no-repeat center center;
+    background-size: 25px, 25px;
+}
