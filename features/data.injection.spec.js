@@ -27,23 +27,44 @@ describe('Data injection', function () {
     });
 
     it('sets the cell class to lost when a bomb is clicked', function (done) {
-            browser.visit(boardPage).then(function () {
-                browser.document.grid =
-                    [
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'bomb' , 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
-                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty']
-                    ];
-                browser.evaluate('load()');
-                browser.click('#cell-3x6');
-                expect(browser.queryAll('.lost').length).toEqual(1);
+        browser.visit(boardPage).then(function () {
+            browser.document.grid =
+                [
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'bomb' , 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty']
+                ];
+            browser.evaluate('load()');
+            browser.click('#cell-3x6');
+            expect(browser.queryAll('.lost').length).toEqual(1);
 //                expect(browser.query('#cell-3x6').attr('class')).toEqual('lost');
-                done();
-            });
+            done();
         });
+    });
+
+    it('sets the cell class to safe when an empty cell is clicked', function (done) {
+        browser.visit(boardPage).then(function () {
+            browser.document.grid =
+                [
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'bomb' , 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                    ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty']
+                ];
+            browser.evaluate('load()');
+            browser.click('#cell-3x5');
+            expect(browser.queryAll('.safe').length).toEqual(1);
+            expect(browser.text('#cell-3x5')).toEqual('1');
+            done();
+        });
+    });
 });

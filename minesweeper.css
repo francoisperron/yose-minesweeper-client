@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6 {
+body, h1, h2, h3, h4, h5, h6, td {
     font-family: "Droid Sans Mono", Helvetica, Arial, sans-serif !important;
 }
 
@@ -31,13 +31,15 @@ tr {
 
 td {
     width: 50px;
-}
-
-td:hover {
-    background-color: #ace2a0;
+    text-align:center;
+    vertical-align:middle !important;
 }
 
 .lost {
     background: url('/img/bomb.png') no-repeat center center;
     background-size: 25px, 25px;
+}
+
+.safe {
+    color: #81BA72;
 }
