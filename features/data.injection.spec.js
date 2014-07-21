@@ -67,4 +67,24 @@ describe('Data injection', function () {
             done();
         });
     });
+
+    it('sets the cell text to nothing when an empty cell without surrounding bombs is clicked', function (done) {
+            browser.visit(boardPage).then(function () {
+                browser.document.grid =
+                    [
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'bomb' , 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty'],
+                        ['empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty', 'empty']
+                    ];
+                browser.evaluate('load()');
+                browser.click('#cell-1x1');
+                expect(browser.text('#cell-1x1')).toEqual('');
+                done();
+            });
+        });
 });

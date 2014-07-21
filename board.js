@@ -9,7 +9,7 @@ Board.prototype.render = function () {
         board.append('<tr></tr>');
         for (var j = 1; j < 9; j++) {
             var id = 'cell-' + i + 'x' + j;
-            board.find('tr:last').append('<td id="' + id + '" onClick=reveal(' + i + ',' + j + ')></td>');
+            board.find('tr:last').append('<td id="' + id + '" class="unknown" onClick=reveal(' + i + ',' + j + ')></td>');
         }
     }
 };
@@ -32,12 +32,15 @@ function load() {
 
 function reveal(row, col) {
     var cell = $('#' + idOfCell(row, col));
+
+    cell.removeClass('unknown');
     if (cell.attr('data-minesweeper') == 'bomb') {
         cell.addClass('lost');
     }
     else {
         cell.addClass('safe');
-        cell.html(bombsAround(row,col));
+        var nbBombs = bombsAround(row, col);
+        cell.html(nbBombs == 0 ? '' : nbBombs);
     }
 }
 
