@@ -36,7 +36,7 @@ td {
 }
 
 .lost {
-    background: url('/img/bomb.png') no-repeat center center;
+    background: url('/minesweeper/img/bomb.png') no-repeat center center;
     background-size: 25px, 25px;
 }
 

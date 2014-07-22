@@ -4,7 +4,7 @@ var Browser = require('zombie');
 describe('Data injection', function () {
 
     var browser = new Browser();
-    var boardPage = 'http://localhost:5002/board.html';
+    var boardPage = 'http://localhost:5002/minesweeper/board.html';
 
     it('sets the cell class to lost when a bomb is clicked', function (done) {
         browser.visit(boardPage).then(function () {
