@@ -25,7 +25,7 @@ Cell.prototype.reveal = function () {
         var nbBombs = this.bombsAround();
         element.html(nbBombs == 0 ? '' : nbBombs);
     }
-}
+};
 
 Cell.prototype.bombsAround = function () {
     var coordinatesAround = [
@@ -47,7 +47,11 @@ Cell.prototype.bombsAround = function () {
         }
     }
     return sum;
-}
+};
+
+Cell.prototype.isUnknown = function () {
+    return this.element().hasClass('unknown');
+};
 
 Cell.prototype.id = function () {
     return 'cell-' + this.row + 'x' + this.col;

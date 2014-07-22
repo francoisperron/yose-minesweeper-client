@@ -21,8 +21,8 @@ describe('Data injection', function () {
                 ];
             browser.evaluate('load()');
             browser.click('#cell-3x6');
-            expect(browser.queryAll('.lost').length).toEqual(1);
-//                expect(browser.query('#cell-3x6').attr('class')).toEqual('lost');
+
+            expect(browser.query('#cell-3x6').getAttribute('class')).toEqual('lost');
             done();
         });
     });
@@ -42,7 +42,8 @@ describe('Data injection', function () {
                 ];
             browser.evaluate('load()');
             browser.click('#cell-3x5');
-            expect(browser.queryAll('.safe').length).toEqual(1);
+
+            expect(browser.query('#cell-3x5').getAttribute('class')).toEqual('safe');
             expect(browser.text('#cell-3x5')).toEqual('1');
             done();
         });
@@ -63,6 +64,7 @@ describe('Data injection', function () {
                     ];
                 browser.evaluate('load()');
                 browser.click('#cell-1x1');
+
                 expect(browser.text('#cell-1x1')).toEqual('');
                 done();
             });
