@@ -16,12 +16,16 @@
 </div>
 
 <script src="/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/cell.js"></script>
 <script src="/board.js"></script>
 <script type="text/javascript">
+    var board = new Board();
     window.onload = function () {
-        var board = new Board();
         board.render();
     };
+    load = function(){
+        board.load(document.grid);
+    }
 </script>
 </body>
 </html>
