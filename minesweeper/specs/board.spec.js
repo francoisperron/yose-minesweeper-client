@@ -28,5 +28,4 @@ describe('Data injection', function () {
         expect($('#cell-3x6').attr('data-minesweeper')).toEqual('bomb');
         expect($('#cell-3x5').attr('data-minesweeper')).toEqual('empty');
     });
-
 });

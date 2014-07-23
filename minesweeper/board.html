@@ -18,10 +18,13 @@
 <script src="/minesweeper/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/minesweeper/cell.js"></script>
 <script src="/minesweeper/board.js"></script>
+<script src="/minesweeper/grid.js"></script>
 <script type="text/javascript">
     var board = new Board();
     window.onload = function () {
         board.render();
+        document.grid = new Grid().generate();
+        load();
     };
     load = function(){
         board.load(document.grid);

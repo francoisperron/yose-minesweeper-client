@@ -9,7 +9,6 @@ Cell.prototype.render = function () {
     return '<td id="' + this.id() + '" class="unknown" onClick=board.reveal(' + this.row + ',' + this.col + ')></td>';
 };
 
-
 Cell.prototype.load = function (val) {
     this.element().attr('data-minesweeper', val);
 };
@@ -29,14 +28,9 @@ Cell.prototype.reveal = function () {
 
 Cell.prototype.bombsAround = function () {
     var coordinatesAround = [
-        [-1, -1],
-        [-1, 0],
-        [-1, 1],
-        [ 0, -1],
-        [ 0, 1],
-        [ 1, -1],
-        [ 1, 0],
-        [ 1, 1]
+        [-1, -1], [-1, 0], [-1, 1],
+        [ 0, -1],          [ 0, 1],
+        [ 1, -1], [ 1, 0], [ 1, 1]
     ];
 
     var sum = 0;

@@ -1,25 +1,28 @@
-/*global describe, beforeEach, afterEach, it, expect */
-var Browser = require('zombie');
+/*global describe, beforeEach, afterEach, it, expect, spyOn, jasmine */
+var $ = require('jquery');
+var Board = require('../board');
 
 describe('Open field', function () {
 
-    var browser = new Browser();
-    var boardPage = 'http://localhost:5002/minesweeper/board.html';
+    var board = new Board();
 
-    it('reveals all cells without a bomb around on click', function (done) {
-        browser.visit(boardPage).then(function () {
-            browser.document.grid =
-                [
-                    ['bomb' , 'empty', 'empty'],
-                    ['empty', 'empty', 'empty'],
-                    ['empty', 'empty', 'bomb' ]
-                ];
-            browser.evaluate('load()');
-            browser.click('#cell-3x1');
-            expect(browser.query('#cell-3x1').getAttribute('class')).toEqual('safe');
-            expect(browser.query('#cell-2x2').getAttribute('class')).toEqual('safe');
-            expect(browser.query('#cell-3x2').getAttribute('class')).toEqual('safe');
-            done();
-        });
+    beforeEach(function () {
+        $('body').append('<div id="board"/>');
+        board.render();
+    });
+
+    it('reveals all cells without a bomb around on click', function () {
+        var grid =
+            [
+                ['bomb' , 'empty', 'empty'],
+                ['empty', 'empty', 'empty'],
+                ['empty', 'empty', 'bomb' ]
+            ];
+        board.load(grid);
+        board.reveal(3,1);
+
+        expect($('#cell-3x1').attr('class')).toEqual('safe');
+        expect($('#cell-2x2').attr('class')).toEqual('safe');
+        expect($('#cell-3x2').attr('class')).toEqual('safe');
     });
 });
